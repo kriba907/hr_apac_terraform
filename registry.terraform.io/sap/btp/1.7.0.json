@@ -1,0 +1,10 @@
+{
+  "archives": {
+    "windows_amd64": {
+      "hashes": [
+        "h1:CE5q9nr8dGzJxifLuPjcTYkbnXzG/81CrqvQxftIvMM="
+      ],
+      "url": "terraform-provider-btp_1.7.0_windows_amd64.zip"
+    }
+  }
+}

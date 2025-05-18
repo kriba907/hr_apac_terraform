@@ -1,0 +1,120 @@
+
+
+data "btp_subaccount_roles" "all" {
+      + id            = (known after apply)
+      + subaccount_id = "6d1fce0d-c38a-4c2a-b248-eb8d49ad60c1"
+      + values        = (known after apply)
+    }
+
+
+  # module.integrationsuite.btp_subaccount_role_collection.Integration_Suite_Admin will be created
+  + resource "btp_subaccount_role_collection" "Integration_Suite_Admin" {
+      + description   = "The role collection for an administrator on Integration Suite"
+      + id            = (known after apply)
+      + name          = "Integration Suite Administrator"
+      + roles         = (known after apply)
+      + subaccount_id = "6d1fce0d-c38a-4c2a-b248-eb8d49ad60c1"
+    }
+
+  # module.integrationsuite.btp_subaccount_role_collection_assignment.Integration_Suite_Admin["JPReilly@deloitte.ca"] will be created
+  + resource "btp_subaccount_role_collection_assignment" "Integration_Suite_Admin" {
+      + id                   = (known after apply)
+      + origin               = "ldap"
+      + role_collection_name = "Integration Suite Administrator"
+      + subaccount_id        = "6d1fce0d-c38a-4c2a-b248-eb8d49ad60c1"
+      + user_name            = "JPReilly@deloitte.ca"
+    }
+
+  # module.integrationsuite.btp_subaccount_role_collection_assignment.Integration_Suite_Admin["kezhilmani@deloitte.ca"] will be created
+  + resource "btp_subaccount_role_collection_assignment" "Integration_Suite_Admin" {
+      + id                   = (known after apply)
+      + origin               = "ldap"
+      + role_collection_name = "Integration Suite Administrator"
+      + subaccount_id        = "6d1fce0d-c38a-4c2a-b248-eb8d49ad60c1"
+      + user_name            = "kezhilmani@deloitte.ca"
+    }
+
+--------------------------------------------------------------------------------------------------------------------------------------------
+
+
+  # module.integrationsuite.btp_subaccount_entitlement.integrationsuite will be created
+    resource "btp_subaccount_entitlement" "pir_entl" {
+      - amount        = 9999 -> null
+      - category      = "ELASTIC_SERVICE" -> null
+      - created_date  = "2025-02-08T02:29:47Z" -> null
+      - id            = "it-rt-api" -> null
+      - last_modified = "2025-02-08T02:29:58Z" -> null
+      - plan_id       = "it-rt-api" -> null
+      - plan_name     = "api" -> null
+      - service_name  = "it-rt" -> null
+      - state         = "OK" -> null
+      - subaccount_id = "6d1fce0d-c38a-4c2a-b248-eb8d49ad60c1" -> null
+    }
+
+-----
+resource "btp_subaccount_entitlement" "integrationsuite" {
+      - amount        = 1 -> null
+      - category      = "QUOTA_BASED_APPLICATION" -> null
+      - created_date  = "2025-02-08T01:07:02Z" -> null
+      - id            = "integrationsuite-standard_edition" -> null
+      - last_modified = "2025-02-08T02:12:28Z" -> null
+      - plan_id       = "integrationsuite-standard_edition" -> null
+      - plan_name     = "standard_edition" -> null
+      - service_name  = "integrationsuite" -> null
+      - state         = "OK" -> null
+      - subaccount_id = "6d1fce0d-c38a-4c2a-b248-eb8d49ad60c1" -> null
+    }
+
+"sap-identity-services-onboarding:default" = {
+              + category             = "APPLICATION"
+              + plan_description     = "SAP Cloud Identity Services allows you to consume Identity Authentication, Identity Directory and Identity Provisioning services. Please take in mind that new instances will be created only in case there aren't existing instances bound to your customer id already."
+              + plan_display_name    = "default"
+              + plan_name            = "default"
+              + quota_assigned       = 1
+              + quota_remaining      = 1
+              + service_display_name = "Cloud Identity Services"
+              + service_name         = "sap-identity-services-onboarding"
+            }
+
+"integrationsuite:standard_edition"        = {
+              + category             = "QUOTA_BASED_APPLICATION"
+              + plan_description     = "Use a subscription of Integration Suite that includes up to 10,000 monthly transactions. You get all capabilities of Integration Suite and a 
+separate entitlement for Edge Integration Cell."
+              + plan_display_name    = "Standard Edition"
+              + plan_name            = "standard_edition"
+              + quota_assigned       = 1
+              + quota_remaining      = 2
+              + service_display_name = "Integration Suite"
+              + service_name         = "integrationsuite"
+            }
+-----
+
+resource "btp_subaccount_subscription" "integrationsuite" {
+      - app_id                      = "it-prov!t134" -> null
+      - app_name                    = "integrationsuite" -> null
+      - authentication_provider     = "XSUAA" -> null
+      - category                    = "" -> null
+      - commercial_app_name         = "integrationsuite" -> null
+      - created_date                = "2025-02-08T02:17:18Z" -> null
+      - customer_developed          = false -> null
+      - description                 = "SAP Integration Suite helps you to quickly develop and manage reliable communication between applications, services, and systems across heterogeneous landscapes." -> null
+      - display_name                = "Integration Suite" -> null
+      - formation_solution_name     = "integration-suite-role-collection-assignment-prod" -> null
+      - globalaccount_id            = "10c4677a-540e-4f1d-9c93-f8c646463650" -> null
+      - id                          = "58c312ce-25b1-4fef-ac07-d695275c9a7d" -> null
+      - last_modified               = "2025-02-08T02:17:33Z" -> null
+      - parameters                  = jsonencode({})
+      - plan_name                   = "standard_edition" -> null
+      - platform_entity_id          = "" -> null
+      - quota                       = 1 -> null
+      - state                       = "SUBSCRIBED" -> null
+      - subaccount_id               = "6d1fce0d-c38a-4c2a-b248-eb8d49ad60c1" -> null
+      - subscribed_subaccount_id    = "6d1fce0d-c38a-4c2a-b248-eb8d49ad60c1" -> null
+      - subscribed_tenant_id        = "6d1fce0d-c38a-4c2a-b248-eb8d49ad60c1" -> null
+      - subscription_url            = "https://hr-apac-dev-lnubijtk.integrationsuite.cfapps.jp10.hana.ondemand.com" -> null
+      - supports_parameters_updates = false -> null
+      - supports_plan_updates       = true -> null
+      - tenant_id                   = "efb3f4a1-84a2-425e-baab-8d80427455d0" -> null
+    }
+
+--------------------------------------------------------------------------------------------------------------------------------------------
